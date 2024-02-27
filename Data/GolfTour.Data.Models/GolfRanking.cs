@@ -43,7 +43,5 @@
         public int MoneyRanking { get; set; }
 
         public int ScoringRanking { get; set; }
-
-
     }
 }

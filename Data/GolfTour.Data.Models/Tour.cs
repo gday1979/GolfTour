@@ -35,9 +35,14 @@
 
         public int Points { get; set; }
 
-        public virtual ICollelction<TypeTour> TypeTours { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
 
-        public virtual ICollelction<Course> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
+
+        public virtual ICollection<FedexCup> FedexCups { get; set; }
+
+        public virtual ICollection<YearCalendar> YearCalendars { get; set; }
+
 
 
     }
