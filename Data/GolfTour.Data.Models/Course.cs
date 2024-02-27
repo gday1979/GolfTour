@@ -25,6 +25,5 @@
         public string Designer { get; set; }
 
         public string YearBuilt { get; set; }
-
     }
 }

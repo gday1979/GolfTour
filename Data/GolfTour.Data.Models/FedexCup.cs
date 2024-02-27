@@ -33,7 +33,5 @@
         public virtual ICollection<Tour> Tours { get; set; }
 
         public virtual ICollection<YearCalendar> YearCalendars { get; set; }
-
-
     }
 }
