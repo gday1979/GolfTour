@@ -6,14 +6,16 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class News
+    using GolfTour.Data.Common.Models;
+
+    public class News : BaseDeletableModel<int>
     {
+        public string Author { get; set; }
+
         public string Title { get; set; }
 
         public string Content { get; set; }
 
         public string Image { get; set; }
-
-        public DateTime Date { get; set; }
     }
 }

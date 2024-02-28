@@ -12,7 +12,11 @@
     {
         public Tour()
         {
-            
+            this.Players = new HashSet<Player>();
+
+            this.FedexCups = new HashSet<FedexCup>();
+
+            this.YearCalendars = new HashSet<YearCalendar>();
         }
 
         public string Name { get; set; }
@@ -37,13 +41,8 @@
 
         public virtual ICollection<Player> Players { get; set; }
 
-        public virtual ICollection<Course> Courses { get; set; }
-
         public virtual ICollection<FedexCup> FedexCups { get; set; }
 
         public virtual ICollection<YearCalendar> YearCalendars { get; set; }
-
-
-
     }
 }

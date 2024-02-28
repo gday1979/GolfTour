@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GolfTour.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(GolfTourDbContext))]
     [Migration("20220607060115_InitialCreate")]
     partial class InitialCreate
     {

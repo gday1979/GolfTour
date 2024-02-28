@@ -6,9 +6,19 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Player
+    using GolfTour.Data.Common.Models;
+
+    public class Player : BaseDeletableModel<int>
     {
-        public string FirstName{ get; set; }
+        public Player()
+        {
+            this.FedexCups = new HashSet<FedexCup>();
+            this.YearCalendars = new HashSet<YearCalendar>();
+            this.Tours = new HashSet<Tour>();
+            this.Courses = new HashSet<Course>();
+        }
+
+        public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
@@ -31,7 +41,5 @@
         public virtual ICollection<Tour> Tours { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
-
-
     }
 }

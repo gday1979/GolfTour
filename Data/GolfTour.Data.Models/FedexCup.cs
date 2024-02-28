@@ -6,8 +6,18 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class FedexCup
+    using GolfTour.Data.Common.Models;
+
+    public class FedexCup : BaseDeletableModel<int>
     {
+        public FedexCup()
+        {
+            this.Players = new HashSet<Player>();
+            this.Courses = new HashSet<Course>();
+            this.Tours = new HashSet<Tour>();
+            this.YearCalendars = new HashSet<YearCalendar>();
+        }
+
         public string Name { get; set; }
 
         public string Country { get; set; }
