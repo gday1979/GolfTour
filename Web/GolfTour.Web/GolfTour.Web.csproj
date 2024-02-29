@@ -40,4 +40,10 @@
     <ProjectReference Include="..\GolfTour.Web.Infrastructure\GolfTour.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\GolfTour.Web.ViewModels\GolfTour.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Courses\" />
+    <Folder Include="Views\Tour\" />
+    <Folder Include="Views\Players\" />
+  </ItemGroup>
 </Project>
