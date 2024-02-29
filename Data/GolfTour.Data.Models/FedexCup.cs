@@ -15,10 +15,9 @@
             this.Players = new HashSet<Player>();
             this.Courses = new HashSet<Course>();
             this.Tours = new HashSet<Tour>();
-            this.YearCalendars = new HashSet<YearCalendar>();
         }
 
-        public string Name { get; set; }
+        public string Player { get; set; }
 
         public string Country { get; set; }
 
@@ -30,8 +29,6 @@
 
         public int MoneyPrize { get; set; }
 
-        public string Player { get; set; }
-
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
@@ -42,6 +39,5 @@
 
         public virtual ICollection<Tour> Tours { get; set; }
 
-        public virtual ICollection<YearCalendar> YearCalendars { get; set; }
     }
 }

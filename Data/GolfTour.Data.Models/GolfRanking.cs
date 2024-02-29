@@ -19,7 +19,7 @@
 
         public string Player { get; set; }
 
-        public int Points { get; set; }
+        public decimal Points { get; set; }
 
         public int MoneyPrize { get; set; }
 

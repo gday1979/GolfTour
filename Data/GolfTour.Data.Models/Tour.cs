@@ -15,8 +15,6 @@
             this.Players = new HashSet<Player>();
 
             this.FedexCups = new HashSet<FedexCup>();
-
-            this.YearCalendars = new HashSet<YearCalendar>();
         }
 
         public string Name { get; set; }
@@ -37,12 +35,11 @@
 
         public DateTime EndDate { get; set; }
 
-        public int Points { get; set; }
+        public decimal Points { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
 
         public virtual ICollection<FedexCup> FedexCups { get; set; }
 
-        public virtual ICollection<YearCalendar> YearCalendars { get; set; }
     }
 }
