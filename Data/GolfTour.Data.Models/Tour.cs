@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -17,18 +18,25 @@
             this.FedexCups = new HashSet<FedexCup>();
         }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string TypeTour { get; set; }
 
+        [Required]
         public string Courses { get; set; }
 
+        [Required]
         public string Country { get; set; }
 
+        [Required]
         public string City { get; set; }
 
+        [Required]
         public int MoneyPrize { get; set; }
 
+        [Required]
         public string Player { get; set; }
 
         public DateTime StartDate { get; set; }
@@ -40,6 +48,5 @@
         public virtual ICollection<Player> Players { get; set; }
 
         public virtual ICollection<FedexCup> FedexCups { get; set; }
-
     }
 }

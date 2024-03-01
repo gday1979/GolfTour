@@ -38,8 +38,6 @@
 
         public DbSet<Course> Courses { get; set; }
 
-        public DbSet<YearCalendar> YearCalendars { get; set; }
-
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -63,6 +61,17 @@
         {
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
+
+            // Specify precision and scale for decimal properties
+            builder.Entity<FedexCup>()
+                .Property(f => f.Points)
+                .HasPrecision(18, 2);
+            builder.Entity<GolfRanking>()
+                .Property(g => g.Points)
+                .HasPrecision(18, 2);
+            builder.Entity<Tour>()
+                .Property(t => t.Points)
+                .HasPrecision(18, 2);
 
             this.ConfigureUserIdentityRelations(builder);
 
@@ -96,7 +105,27 @@
 
         // Applies configurations
         private void ConfigureUserIdentityRelations(ModelBuilder builder)
-             => builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
+        {
+            builder.Entity<GolfTourUser>()
+                .HasMany(e => e.Claims)
+                .WithOne()
+                .HasForeignKey(e => e.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<GolfTourUser>()
+                .HasMany(e => e.Logins)
+                .WithOne()
+                .HasForeignKey(e => e.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<GolfTourUser>()
+                .HasMany(e => e.Roles)
+                .WithOne()
+                .HasForeignKey(e => e.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+        }
 
         private void ApplyAuditInfoRules()
         {

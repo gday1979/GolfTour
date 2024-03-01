@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -17,15 +18,19 @@
             this.Tours = new HashSet<Tour>();
         }
 
+        [Required]
         public string Player { get; set; }
 
+        [Required]
         public string Country { get; set; }
 
+        [Required]
         public string City { get; set; }
 
+        [Required]
         public string Image { get; set; }
 
-        public int Points { get; set; }
+        public decimal Points { get; set; }
 
         public int MoneyPrize { get; set; }
 
@@ -38,6 +43,5 @@
         public virtual ICollection<Course> Courses { get; set; }
 
         public virtual ICollection<Tour> Tours { get; set; }
-
     }
 }
