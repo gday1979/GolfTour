@@ -2,48 +2,46 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
-    public class GolfRanking
+    using GolfTour.Data.Common.Models;
+
+    public class GolfRanking : BaseDeletableModel<int>
     {
+        public GolfRanking()
+        {
+            this.Players = new HashSet<Player>();
+            this.Tours = new HashSet<Tour>();
+            this.FedexCups = new HashSet<FedexCup>();
+        }
+
+        [Required]
         public string Player { get; set; }
 
-        public int Points { get; set; }
+        public decimal Points { get; set; }
 
+        [Required]
         public int MoneyPrize { get; set; }
 
+        [Required]
         public int TournamentsPlayed { get; set; }
 
+        [Required]
         public int Wins { get; set; }
 
-        public int Top10 { get; set; }
-
-        public int Top25 { get; set; }
-
-        public int CutsMade { get; set; }
-
-        public int ScoringAverage { get; set; }
-
-        public int DrivingDistance { get; set; }
-
-        public int DrivingAccuracy { get; set; }
-
-        public int GreensInRegulation { get; set; }
-
-        public int PuttingAverage { get; set; }
-
-        public int SandSaves { get; set; }
-
-        public int Scrambling { get; set; }
-
-        public int AllAroundRanking { get; set; }
-
+        [Required]
         public int MoneyRanking { get; set; }
 
+        [Required]
         public int ScoringRanking { get; set; }
 
+        public virtual ICollection<Player> Players { get; set; }
 
+        public virtual ICollection<Tour> Tours { get; set; }
+
+        public virtual ICollection<FedexCup> FedexCups { get; set; }
     }
 }

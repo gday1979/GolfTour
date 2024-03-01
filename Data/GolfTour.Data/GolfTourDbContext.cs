@@ -12,19 +12,31 @@
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class GolfTourDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         private static readonly MethodInfo SetIsDeletedQueryFilterMethod =
-            typeof(ApplicationDbContext).GetMethod(
+            typeof(GolfTourDbContext).GetMethod(
                 nameof(SetIsDeletedQueryFilter),
                 BindingFlags.NonPublic | BindingFlags.Static);
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public GolfTourDbContext(DbContextOptions<GolfTourDbContext> options)
             : base(options)
         {
         }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<GolfRanking> GolfRankings { get; set; }
+
+        public DbSet<News> Newses { get; set; }
+
+        public DbSet<Player> Players { get; set; }
+
+        public DbSet<Tour> Tours { get; set; }
+
+        public DbSet<FedexCup> FedexCups { get; set; }
+
+        public DbSet<Course> Courses { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -49,6 +61,17 @@
         {
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
+
+            // Specify precision and scale for decimal properties
+            builder.Entity<FedexCup>()
+                .Property(f => f.Points)
+                .HasPrecision(18, 2);
+            builder.Entity<GolfRanking>()
+                .Property(g => g.Points)
+                .HasPrecision(18, 2);
+            builder.Entity<Tour>()
+                .Property(t => t.Points)
+                .HasPrecision(18, 2);
 
             this.ConfigureUserIdentityRelations(builder);
 
@@ -82,7 +105,27 @@
 
         // Applies configurations
         private void ConfigureUserIdentityRelations(ModelBuilder builder)
-             => builder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
+        {
+            builder.Entity<GolfTourUser>()
+                .HasMany(e => e.Claims)
+                .WithOne()
+                .HasForeignKey(e => e.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<GolfTourUser>()
+                .HasMany(e => e.Logins)
+                .WithOne()
+                .HasForeignKey(e => e.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<GolfTourUser>()
+                .HasMany(e => e.Roles)
+                .WithOne()
+                .HasForeignKey(e => e.UserId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Restrict);
+
+        }
 
         private void ApplyAuditInfoRules()
         {
