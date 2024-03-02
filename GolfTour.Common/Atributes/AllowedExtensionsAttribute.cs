@@ -5,6 +5,8 @@
     using System.IO;
     using System.Linq;
 
+    using Microsoft.AspNetCore.Http;
+
     [AttributeUsage(AttributeTargets.Property)]
     public class AllowedExtensionsAttribute : ValidationAttribute
     {
