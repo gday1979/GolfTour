@@ -38,9 +38,5 @@
         public virtual ICollection<Player> Players { get; set; }
 
         public virtual ICollection<Tour> Tours { get; set; }
-
-        public virtual ICollection<FedexCup> FedexCups { get; set; }
-
-        public virtual ICollection<GolfRanking> GolfRankings { get; set; }
     }
 }

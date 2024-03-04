@@ -10,11 +10,10 @@
 
     using GolfTour.Data.Common.Models;
 
-    public class Tour : BaseDeletableModel<int>
+    public class PgaTour : BaseDeletableModel<int>
     {
-        public Tour()
+        public PgaTour()
         {
-            this.Players = new HashSet<Player>();
             this.Courses = new HashSet<Course>();
         }
 
@@ -22,20 +21,18 @@
         public string Name { get; set; }
 
         [Required]
-        [ForeignKey("TypeTour")]
-        public int TypeTourId { get; set; }
+        [ForeignKey("PlayerQualified")]
+        public int PlayerQualifiedId { get; set; }
 
-        [Required]
-        public TypeTour TypeTour { get; set; }
+        public PlayerQualified PlayerQualified { get; set; }
 
-        [Required]
+        public string Country { get; set; }
+
         public string City { get; set; }
 
-        public int PrizeMoney { get; set; }
+        public string ImageTour { get; set; }
 
-        public int Points { get; set; }
-
-        public virtual ICollection<Player> Players { get; set; }
+        public string Designer { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
     }

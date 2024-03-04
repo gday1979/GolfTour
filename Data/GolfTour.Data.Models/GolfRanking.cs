@@ -13,18 +13,16 @@
     {
         public GolfRanking()
         {
-            this.Players = new HashSet<Player>();
-            this.Tours = new HashSet<Tour>();
-            this.FedexCups = new HashSet<FedexCup>();
+            this.Courses = new HashSet<Course>();
         }
 
         [Required]
         public string Player { get; set; }
 
-        public decimal Points { get; set; }
+        public int Points { get; set; }
 
         [Required]
-        public int MoneyPrize { get; set; }
+        public int PrizeMoney { get; set; }
 
         [Required]
         public int TournamentsPlayed { get; set; }
@@ -35,13 +33,6 @@
         [Required]
         public int MoneyRanking { get; set; }
 
-        [Required]
-        public int ScoringRanking { get; set; }
-
-        public virtual ICollection<Player> Players { get; set; }
-
-        public virtual ICollection<Tour> Tours { get; set; }
-
-        public virtual ICollection<FedexCup> FedexCups { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }

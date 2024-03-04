@@ -28,7 +28,9 @@
 
         public DbSet<GolfRanking> GolfRankings { get; set; }
 
-        public DbSet<News> Newses { get; set; }
+        public DbSet<PgaTour> PgaTours { get; set; }
+
+        public DbSet<PlayerQualified> PlayerQualifieds { get; set; }
 
         public DbSet<Player> Players { get; set; }
 
@@ -63,17 +65,6 @@
         {
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
-
-            // Specify precision and scale for decimal properties
-            builder.Entity<FedexCup>()
-                .Property(f => f.Points)
-                .HasPrecision(18, 2);
-            builder.Entity<GolfRanking>()
-                .Property(g => g.Points)
-                .HasPrecision(18, 2);
-            builder.Entity<Tour>()
-                .Property(t => t.Points)
-                .HasPrecision(18, 2);
 
             this.ConfigureUserIdentityRelations(builder);
 
@@ -126,7 +117,6 @@
                 .HasForeignKey(e => e.UserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
-
         }
 
         private void ApplyAuditInfoRules()

@@ -16,8 +16,6 @@
         public Course()
         {
             this.Players = new HashSet<Player>();
-            this.FedexCups = new HashSet<FedexCup>();
-            this.Tours = new HashSet<Tour>();
         }
 
         [Required]
@@ -32,28 +30,13 @@
         public string City { get; set; }
 
         [Required]
-        public string Image { get; set; }
-
-        [Required]
-        [StringLength(CourseHolesMaxValue)]
-        public int Holes { get; set; }
-
-        [Required]
-        public int Par { get; set; }
-
-        [Required]
-        public int Length { get; set; }
+        public string ImageCourse { get; set; }
 
         [Required]
         public string Designer { get; set; }
 
-        [Required]
-        public int YearBuilt { get; set; }
+        public virtual ICollection<Player> Winners { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
-
-        public virtual ICollection<FedexCup> FedexCups { get; set; }
-
-        public virtual ICollection<Tour> Tours { get; set; }
     }
 }
