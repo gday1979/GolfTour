@@ -3,23 +3,18 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class TypeTour
+    using GolfTour.Data.Common.Models;
+
+    public class TypeTour : BaseDeletableModel<int>
     {
         public TypeTour()
         {
-            this.Tours = new HashSet<Tour>();
+            this.Players = new HashSet<Player>();
         }
-
-        [Key]
-        [Required]
-        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
 
-        [Required]
-        public string Description { get; set; }
-
-        public virtual ICollection<Tour> Tours { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

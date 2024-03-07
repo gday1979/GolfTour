@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
+﻿#nullable disable
 
 namespace GolfTour.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     /// <inheritdoc />
     public partial class CreateCustomInitial : Migration
     {
@@ -47,7 +48,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -77,7 +78,7 @@ namespace GolfTour.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -97,7 +98,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -121,7 +122,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -152,7 +153,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -187,7 +188,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -226,7 +227,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -253,7 +254,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     CoursesId = table.Column<int>(type: "int", nullable: false),
-                    FedexCupsId = table.Column<int>(type: "int", nullable: false)
+                    FedexCupsId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -277,7 +278,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     CoursesId = table.Column<int>(type: "int", nullable: false),
-                    PlayersId = table.Column<int>(type: "int", nullable: false)
+                    PlayersId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -301,7 +302,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     FedexCupsId = table.Column<int>(type: "int", nullable: false),
-                    PlayersId = table.Column<int>(type: "int", nullable: false)
+                    PlayersId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -325,7 +326,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     FedexCupsId = table.Column<int>(type: "int", nullable: false),
-                    ToursId = table.Column<int>(type: "int", nullable: false)
+                    ToursId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -349,7 +350,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     PlayersId = table.Column<int>(type: "int", nullable: false),
-                    ToursId = table.Column<int>(type: "int", nullable: false)
+                    ToursId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -13,35 +14,27 @@
     {
         public FedexCup()
         {
-            this.Players = new HashSet<Player>();
-            this.Courses = new HashSet<Course>();
-            this.Tours = new HashSet<Tour>();
+           this.Courses = new HashSet<Course>();
         }
 
         [Required]
-        public string Player { get; set; }
+        [ForeignKey("PlayerQualified")]
+        public int PlayerQualifiedId { get; set; }
+
+        public PlayerQualified PlayerQualified { get; set; }
+
+        public int Points { get; set; }
+
+        public int PrizeMoney { get; set; }
+
+        public int TournamentsPlayed { get; set; }
 
         [Required]
-        public string Country { get; set; }
-
-        [Required]
-        public string City { get; set; }
-
-        [Required]
-        public string Image { get; set; }
-
-        public decimal Points { get; set; }
-
-        public int MoneyPrize { get; set; }
-
         public DateTime StartDate { get; set; }
 
+        [Required]
         public DateTime EndDate { get; set; }
 
-        public virtual ICollection<Player> Players { get; set; }
-
-        public virtual ICollection<Course> Courses { get; set; }
-
-        public virtual ICollection<Tour> Tours { get; set; }
+        public ICollection<Course> Courses { get; set; }
     }
 }

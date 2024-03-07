@@ -11,9 +11,7 @@
     {
         public Player()
         {
-            this.FedexCups = new HashSet<FedexCup>();
-            this.Tours = new HashSet<Tour>();
-            this.Courses = new HashSet<Course>();
+            this.PlayerQualifieds = new HashSet<PlayerQualified>();
         }
 
         [Required]
@@ -33,19 +31,11 @@
         public string City { get; set; }
 
         [Required]
-        [StringLength(PlayerAgeMaxValue)]
-        public int Age { get; set; }
-
-        [Required]
         public int YearsPro { get; set; }
 
         [Required]
-        public string Image { get; set; }
+        public string ImagePlayer { get; set; }
 
-        public virtual ICollection<FedexCup> FedexCups { get; set; }
-
-        public virtual ICollection<Tour> Tours { get; set; }
-
-        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<PlayerQualified> PlayerQualifieds { get; set; }
     }
 }
