@@ -16,8 +16,6 @@
         {
             public const int NameTourMinLength = 3;
             public const int NameTourMaxLength = 50;
-
-
         }
     }
 }

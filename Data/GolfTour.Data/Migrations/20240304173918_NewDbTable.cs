@@ -1,10 +1,11 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
+﻿#nullable disable
 
 namespace GolfTour.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     /// <inheritdoc />
     public partial class NewDbTable : Migration
     {
@@ -333,7 +334,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -367,7 +368,7 @@ namespace GolfTour.Data.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    DeletedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
                 },
                 constraints: table =>
                 {
@@ -700,7 +701,7 @@ namespace GolfTour.Data.Migrations
                 table: "TypeTours",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AlterColumn<int>(
                 name: "TypeTourId",
@@ -725,7 +726,7 @@ namespace GolfTour.Data.Migrations
                 table: "Tours",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<int>(
                 name: "CourseId",
@@ -738,7 +739,7 @@ namespace GolfTour.Data.Migrations
                 table: "Tours",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "EndDate",
@@ -846,14 +847,14 @@ namespace GolfTour.Data.Migrations
                 table: "FedexCups",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<string>(
                 name: "Player",
                 table: "FedexCups",
                 type: "nvarchar(max)",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: " ");
 
             migrationBuilder.AddColumn<int>(
                 name: "Holes",
@@ -889,7 +890,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     CoursesId = table.Column<int>(type: "int", nullable: false),
-                    FedexCupsId = table.Column<int>(type: "int", nullable: false)
+                    FedexCupsId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -913,7 +914,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     CoursesId = table.Column<int>(type: "int", nullable: false),
-                    PlayersId = table.Column<int>(type: "int", nullable: false)
+                    PlayersId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -937,7 +938,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     FedexCupsId = table.Column<int>(type: "int", nullable: false),
-                    PlayersId = table.Column<int>(type: "int", nullable: false)
+                    PlayersId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
@@ -961,7 +962,7 @@ namespace GolfTour.Data.Migrations
                 columns: table => new
                 {
                     FedexCupsId = table.Column<int>(type: "int", nullable: false),
-                    ToursId = table.Column<int>(type: "int", nullable: false)
+                    ToursId = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {

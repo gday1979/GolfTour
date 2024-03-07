@@ -2,6 +2,7 @@
 {
     using System.Reflection;
 
+    using CloudinaryDotNet;
     using GolfTour.Data;
     using GolfTour.Data.Common;
     using GolfTour.Data.Common.Repositories;
@@ -9,6 +10,8 @@
     using GolfTour.Data.Repositories;
     using GolfTour.Data.Seeding;
     using GolfTour.Services.Data;
+    using GolfTour.Services.Data.Contracts;
+    using GolfTour.Services.Data.Helpers;
     using GolfTour.Services.Mapping;
     using GolfTour.Services.Messaging;
     using GolfTour.Web.ViewModels;
@@ -65,6 +68,7 @@
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
             services.AddTransient<ISettingsService, SettingsService>();
+            services.AddTransient<ICloudinaryService, CloudinaryService>();
         }
 
         private static void Configure(WebApplication app)
@@ -98,7 +102,6 @@
 
             app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");

@@ -33,7 +33,7 @@
                 Email = GlobalConstants.AdministratorEmail,
                 FullName = GlobalConstants.AdministratorFullName,
             };
-            var result= await userManager.CreateAsync(user, GlobalConstants.AdministratorPassword);
+            var result = await userManager.CreateAsync(user, GlobalConstants.AdministratorPassword);
             if (result.Succeeded)
             {
                 await userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRoleName);

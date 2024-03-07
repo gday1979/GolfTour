@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.26.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435" PrivateAssets="all">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
@@ -22,6 +24,10 @@
     <ProjectReference Include="..\..\Data\GolfTour.Data.Common\GolfTour.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\GolfTour.Data.Models\GolfTour.Data.Models.csproj" />
     <ProjectReference Include="..\GolfTour.Services.Mapping\GolfTour.Services.Mapping.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\" />
   </ItemGroup>
 
 </Project>
