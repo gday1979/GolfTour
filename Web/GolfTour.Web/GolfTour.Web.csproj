@@ -50,7 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Courses\" />
     <Folder Include="Views\Players\" />
   </ItemGroup>
 </Project>
