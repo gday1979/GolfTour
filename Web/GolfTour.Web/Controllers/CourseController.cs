@@ -4,6 +4,7 @@
     using System.Linq;
 
     using GolfTour.Data;
+    using GolfTour.Data.Common.Repositories;
     using GolfTour.Data.Models;
     using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +17,20 @@
             this.context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Create()
         {
-           List<Course> courses = this.context.Courses.ToList();
-           return this.View(courses);
+            return this.View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Course course)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View();
+            }
+
+            return this.RedirectToAction("/");
         }
     }
 }

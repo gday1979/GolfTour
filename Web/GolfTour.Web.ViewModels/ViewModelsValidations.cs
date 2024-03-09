@@ -17,5 +17,20 @@
             public const int NameTourMinLength = 3;
             public const int NameTourMaxLength = 50;
         }
+
+        public static class Course
+        {
+            public const int NameCourseMinLength = 3;
+            public const int NameCourseMaxLength = 20;
+
+            public const int CountryMinLength = 3;
+            public const int CountryMaxLength = 15;
+
+            public const int CityMinLength = 3;
+            public const int CityMaxLength = 15;
+
+            public const int DesignerMinLength = 3;
+            public const int DesignerMaxLength = 15;
+        }
     }
 }

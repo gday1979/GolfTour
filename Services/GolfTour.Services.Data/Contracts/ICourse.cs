@@ -1,14 +1,13 @@
 ﻿namespace GolfTour.Services.Data.Contracts
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
+
+    using GolfTour.Data.Models;
 
     public interface ICourse
     {
-        Task<IEnumerable<T>> GetAllCourses<T>();
+        Task<IEnumerable<Course>> GetAllCourses<T>();
 
         Task<T> GetCourseById<T>(int id);
     }

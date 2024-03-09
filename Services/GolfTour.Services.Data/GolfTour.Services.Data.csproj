@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\GolfTour.Data.Common\GolfTour.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\GolfTour.Data.Models\GolfTour.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\GolfTour.Web.ViewModels\GolfTour.Web.ViewModels.csproj" />
     <ProjectReference Include="..\GolfTour.Services.Mapping\GolfTour.Services.Mapping.csproj" />
   </ItemGroup>
 
