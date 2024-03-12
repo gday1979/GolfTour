@@ -1,4 +1,4 @@
-﻿namespace GolfTour.Services.Data.Contracts
+﻿namespace GolfTour.Services.Data.Cloudinary
 {
     using System;
     using System.Collections.Generic;

@@ -8,7 +8,7 @@
 
     using GolfTour.Data.Models;
 
-    public class IPlayerSeeder : ISeeder
+    public class PlayerSeeder : ISeeder
     {
         public async Task SeedAsync(GolfTourDbContext dbContext, IServiceProvider serviceProvider)
         {
@@ -23,7 +23,7 @@
                 {
                     FirstName = "Tiger",
                     LastName = "Woods",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-tiger-woods-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
                     City = "Orlando",
                 },
@@ -31,15 +31,15 @@
                 {
                     FirstName = "Rory",
                     LastName = "McIlroy",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-rory-mcilroy-masters-2019-getty.jpg",
-                    Country = "Northern Ireland",
+                    ImagePlayer = " ",
+                    Country = "Ireland",
                     City = "Belfast",
                 },
                 new Player
                 {
                     FirstName = "Phil",
                     LastName = "Mickelson",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-phil-mickelson-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
                     City = "San Diego",
                 },
@@ -47,7 +47,7 @@
                 {
                     FirstName = "Jordan",
                     LastName = "Spieth",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-jordan-spieth-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
                     City = "Dallas",
                 },
@@ -55,7 +55,7 @@
                 {
                     FirstName = "Justin",
                     LastName = "Thomas",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-justin-thomas-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
                     City = "Louisville",
                 },
@@ -63,15 +63,15 @@
                 {
                     FirstName = "Brooks",
                     LastName = "Koepka",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-brooks-koepka-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
-                    City = "West Palm Beach",
+                    City = "Palm Beach",
                 },
                 new Player
                 {
                     FirstName = "Dustin",
                     LastName = "Johnson",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-dustin-johnson-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
                     City = "Jupiter",
                 },
@@ -79,7 +79,7 @@
                 {
                     FirstName = "Rickie",
                     LastName = "Fowler",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-rickie-fowler-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
                     City = "Jupiter",
                 },
@@ -87,7 +87,7 @@
                 {
                     FirstName = "Bryson",
                     LastName = "DeChambeau",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-bryson-dechambeau-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "USA",
                     City = "Dallas",
                 },
@@ -95,7 +95,7 @@
                 {
                     FirstName = "Jon",
                     LastName = "Rahm",
-                    ImagePlayer = "https://www.golfdigest.com/content/dam/images/golfdigest/fullset/2019/4/15/1/20190415-jon-rahm-masters-2019-getty.jpg",
+                    ImagePlayer = " ",
                     Country = "Spain",
                     City = "Barcelona",
                 },
@@ -111,6 +111,8 @@
                     City = player.City,
                 });
             }
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }

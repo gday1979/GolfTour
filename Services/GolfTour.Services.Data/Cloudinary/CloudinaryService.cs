@@ -1,4 +1,4 @@
-﻿namespace GolfTour.Services.Data
+﻿namespace GolfTour.Services.Data.Cloudinary
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +8,6 @@
 
     using CloudinaryDotNet;
     using CloudinaryDotNet.Actions;
-    using GolfTour.Services.Data.Contracts;
     using GolfTour.Services.Data.Helpers;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Options;
@@ -23,7 +22,7 @@
                     config.Value.CloudName,
                     config.Value.ApiKey,
                     config.Value.ApiSecret);
-            this.cloudinary = new Cloudinary(acc);
+            cloudinary = new Cloudinary(acc);
         }
 
         public async Task<ImageUploadResult> AddPhotoAsync(IFormFile file)
@@ -37,7 +36,7 @@
                     File = new FileDescription(file.FileName, stream),
                     Transformation = new Transformation().Height(500).Width(500).Crop("fill").Gravity("face"),
                 };
-                uploadResult = await this.cloudinary.UploadAsync(uploadParams);
+                uploadResult = await cloudinary.UploadAsync(uploadParams);
             }
 
             return uploadResult;
@@ -46,7 +45,7 @@
         public async Task<DeletionResult> DeletePhotoAsync(string publicId)
         {
             var deleteParams = new DeletionParams(publicId);
-            var result = await this.cloudinary.DestroyAsync(deleteParams);
+            var result = await cloudinary.DestroyAsync(deleteParams);
             return result;
         }
     }

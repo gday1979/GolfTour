@@ -17,7 +17,7 @@
             this.context = context;
         }
 
-        public IActionResult Create()
+        public IActionResult Index()
         {
             return this.View();
         }

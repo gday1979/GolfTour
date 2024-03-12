@@ -8,7 +8,7 @@
 
     using GolfTour.Data.Models;
 
-    public class ICourseSeeder : ISeeder
+    public class CourseSeeder : ISeeder
     {
         public async Task SeedAsync(GolfTourDbContext dbContext, IServiceProvider serviceProvider)
         {
@@ -21,11 +21,11 @@
             {
                 new Course
                 {
-                    Name = "Augusta National",
+                    Name = "Augusta",
                     Country = "USA",
                     City = "Augusta, Georgia",
                     Designer = "Alister MacKenzie, Bobby Jones",
-                    ImageCourse = "https://www.golfdigest.com/story/augusta-national-clubhouse-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
@@ -33,7 +33,7 @@
                     Country = "USA",
                     City = "Pebble Beach, California",
                     Designer = "Jack Neville, Douglas Grant",
-                    ImageCourse = "https://www.golfdigest.com/story/pebble-beach-golf-links-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
@@ -41,15 +41,15 @@
                     Country = "Scotland",
                     City = "St. Andrews",
                     Designer = "Old Tom Morris",
-                    ImageCourse = "https://www.golfdigest.com/story/old-course-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
-                    Name = "Royal County Down",
-                    Country = "Northern Ireland",
+                    Name = "Royal County",
+                    Country = "Ireland",
                     City = "Newcastle",
                     Designer = "Old Tom Morris",
-                    ImageCourse = "https://www.golfdigest.com/story/royal-county-down-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
@@ -57,7 +57,7 @@
                     Country = "USA",
                     City = "Pebble Beach, California",
                     Designer = "Alister MacKenzie",
-                    ImageCourse = "https://www.golfdigest.com/story/cypress-point-club-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
@@ -65,7 +65,7 @@
                     Country = "Australia",
                     City = "Melbourne",
                     Designer = "Alister MacKenzie",
-                    ImageCourse = "https://www.golfdigest.com/story/royal-melbourne-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
@@ -73,15 +73,15 @@
                     Country = "Scotland",
                     City = "Gullane",
                     Designer = "Old Tom Morris",
-                    ImageCourse = "https://www.golfdigest.com/story/muirfield-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
-                    Name = "Shinnecock Hills",
+                    Name = "Hills",
                     Country = "USA",
                     City = "Southampton, New York",
                     Designer = "William Flynn",
-                    ImageCourse = "https://www.golfdigest.com/story/shinnecock-hills-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
@@ -89,15 +89,15 @@
                     Country = "USA",
                     City = "Mullen, Nebraska",
                     Designer = "Bill Coore, Ben Crenshaw",
-                    ImageCourse = "https://www.golfdigest.com/story/sand-hills-photos",
+                    ImageCourse = " ",
                 },
                 new Course
                 {
                     Name = "Royal Portrush",
-                    Country = "Northern Ireland",
+                    Country = "Ireland",
                     City = "Portrush",
                     Designer = "Harry Colt",
-                    ImageCourse = "https://www.golfdigest.com/story/royal-portrush-photos",
+                    ImageCourse = " ",
                 },
             };
             foreach (var course in courses)
@@ -111,6 +111,8 @@
                      ImageCourse = course.ImageCourse,
                 });
             }
+
+            await dbContext.SaveChangesAsync();
          }
      }
 }

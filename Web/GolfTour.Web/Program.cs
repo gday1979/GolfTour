@@ -10,7 +10,7 @@
     using GolfTour.Data.Repositories;
     using GolfTour.Data.Seeding;
     using GolfTour.Services.Data;
-    using GolfTour.Services.Data.Contracts;
+    using GolfTour.Services.Data.Cloudinary;
     using GolfTour.Services.Data.Helpers;
     using GolfTour.Services.Mapping;
     using GolfTour.Services.Messaging;

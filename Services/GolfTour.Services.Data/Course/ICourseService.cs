@@ -1,4 +1,4 @@
-﻿namespace GolfTour.Services.Data.Contracts
+﻿namespace GolfTour.Services.Data.Course
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;

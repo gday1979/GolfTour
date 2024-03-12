@@ -1,4 +1,4 @@
-﻿namespace GolfTour.Services.Data.Contracts
+﻿namespace GolfTour.Services.Data.Player
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public interface IPlayer
+    public class Player
     {
-
     }
 }
