@@ -3,7 +3,7 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
+
     using GolfTour.Web.ViewModels.Tour;
 
     using static GolfTour.Web.ViewModels.ViewModelsValidations.Course;
@@ -36,8 +36,6 @@
         public int TourId { get; set; }
 
         public int RankingId { get; set; }
-
-        public IEnumerable<SelectListItem> SelectListItems { get; set; }
 
         public IEnumerable<TourViewModel> Tours { get; set; }
     }
