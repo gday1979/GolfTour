@@ -22,8 +22,10 @@
         [Required]
         [DisplayName("End Date")]
         public string EndDate { get; set; }
+
         [Required]
         public string Country { get; set; }
+
         [Required]
         [StringLength(15, MinimumLength = 3)]
         public string City { get; set; }

@@ -1,0 +1,26 @@
+﻿@model GolfTour.Web.ViewModels.Course.CourseViewModel
+@{
+    this.ViewData["Title"] = "Courses";
+}
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://www.caddybytes.com/virtualtours/Quail%20Hollow/slides/Par3_17th.jpg" class="h-200 w-100" alt="TPC Sawgrass Stadium">
+            <p>Famous Golf Courses</p>
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.caddybytes.com/virtualtours/Buick%20Invitational/slides/Par3_16th.jpg" class="d-block w-100" alt="Tory Pines">
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.caddybytes.com/virtualtours/Bay%20Hill/slides/Arnies_home.jpg" class="d-block w-100" alt="Bay Hill">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

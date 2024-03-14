@@ -29,6 +29,15 @@
             {
                 return this.View();
             }
+            var courseToAdd = new Course
+            {
+                Name = course.Name,
+                Designer = course.Designer,
+                Country = course.Country,
+                City = course.City,
+            };
+            this.context.Courses.Add(courseToAdd);
+            this.context.SaveChanges();
 
             return this.RedirectToAction("/");
         }

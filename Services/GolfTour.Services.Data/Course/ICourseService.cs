@@ -8,14 +8,14 @@
 
     public interface ICourseService
     {
-        IEnumerable<CourseViewModel> GetAllCourses();
+        Task<int> GetCountAllCourses(int courseId);
 
-        CourseViewModel GetCourseById(int id);
+        Task<int> CreateCourseAsync(CourseViewModel input, string userId);
 
-        void CreateCourse(CourseViewModel course);
+        Task<int> EditCourseAsync(CourseViewModel input, string userId);
 
-        void UpdateCourse(CourseViewModel course);
+        Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync(int courseId, int take, int skip);
 
-        void DeleteCourse(int id);
+        Task<T> GetDetails<T>(CourseViewModel input);
     }
 }

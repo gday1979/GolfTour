@@ -26,12 +26,16 @@
 
         public PlayerQualified PlayerQualified { get; set; }
 
+        [Required]
         public string Country { get; set; }
 
+        [Required]
         public string City { get; set; }
 
+        [Required]
         public string ImageTour { get; set; }
 
+        [Required]
         public string Designer { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
