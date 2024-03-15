@@ -35,8 +35,6 @@
         [Required]
         public string Designer { get; set; }
 
-        public virtual ICollection<Player> Winners { get; set; }
-
         public virtual ICollection<Player> Players { get; set; }
     }
 }

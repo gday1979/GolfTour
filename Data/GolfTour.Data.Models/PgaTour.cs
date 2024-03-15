@@ -15,6 +15,8 @@
         public PgaTour()
         {
             this.Courses = new HashSet<Course>();
+            this.Players = new HashSet<Player>();
+            this.PlayerQualifieds = new HashSet<PlayerQualified>();
         }
 
         [Required]
@@ -39,5 +41,11 @@
         public string Designer { get; set; }
 
         public virtual ICollection<Course> Courses { get; set; }
+
+        public virtual ICollection<Player> Players { get; set; }
+
+        public virtual ICollection<PlayerQualified> PlayerQualifieds { get; set; }
+
+
     }
 }

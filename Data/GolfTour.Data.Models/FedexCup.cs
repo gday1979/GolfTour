@@ -36,5 +36,9 @@
         public DateTime EndDate { get; set; }
 
         public ICollection<Course> Courses { get; set; }
+
+        public virtual ICollection<PlayerQualified> PlayerQualifieds { get; set; }
+
+
     }
 }

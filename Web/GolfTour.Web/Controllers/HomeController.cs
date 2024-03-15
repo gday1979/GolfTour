@@ -10,11 +10,11 @@
     {
         public IActionResult Index()
         {
-            return this.View();
-        }
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return this.RedirectToAction("Index", "Course");
+            }
 
-        public IActionResult Privacy()
-        {
             return this.View();
         }
 

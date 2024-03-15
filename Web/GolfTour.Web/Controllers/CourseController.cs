@@ -2,10 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using GolfTour.Data;
     using GolfTour.Data.Common.Repositories;
     using GolfTour.Data.Models;
+    using GolfTour.Web.ViewModels.Course;
     using Microsoft.AspNetCore.Mvc;
 
     public class CourseController : Controller
@@ -19,7 +21,27 @@
 
         public IActionResult Index()
         {
-            return this.View();
+            return View();
+        }
+
+        
+        public async Task<IActionResult> Details(int id)
+        {
+            var course = await this.context.Courses.FindAsync(id);
+            if (course == null)
+            {
+                return BadRequest();
+            }
+
+            var courseView=new DetailsViewModel
+            {
+                Name = course.Name,
+                Country = course.Country,
+                City = course.City,
+                Designer = course.Designer,
+                ImageCourse = course.ImageCourse,
+            };
+            return View(courseView);
         }
 
         [HttpPost]
@@ -29,6 +51,7 @@
             {
                 return this.View();
             }
+
             var courseToAdd = new Course
             {
                 Name = course.Name,
