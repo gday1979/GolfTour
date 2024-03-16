@@ -21,19 +21,18 @@
 
         public IActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
-        
         public async Task<IActionResult> Details(int id)
         {
             var course = await this.context.Courses.FindAsync(id);
             if (course == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
-            var courseView=new DetailsViewModel
+            var courseView = new DetailsViewModel
             {
                 Name = course.Name,
                 Country = course.Country,

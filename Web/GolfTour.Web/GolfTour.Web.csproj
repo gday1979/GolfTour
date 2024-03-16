@@ -50,7 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Players\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 </Project>

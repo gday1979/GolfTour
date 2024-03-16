@@ -6,13 +6,12 @@
 
     using GolfTour.Web.ViewModels.Course;
 
-    public class Course : ICourseService
+    public class CourseService : ICourseService
     {
         private readonly ICourseService courseService;
 
-        public Course(ICourseService courseService)
+        public CourseService()
         {
-            this.courseService = courseService;
         }
 
         public async Task<int> CreateCourseAsync(CourseViewModel input, string userId)
@@ -24,7 +23,6 @@
                 City = input.City,
                 Designer = input.Designer,
                 ImageCourse = input.ImageCourse,
-                PgaTourId = input.PgaTourId,
             };
             await this.courseService.CreateCourseAsync(course, userId);
             return 1;

@@ -14,8 +14,6 @@
 
         Task<int> EditCourseAsync(CourseViewModel input, string userId);
 
-        Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync(int courseId, int take, int skip);
-
         Task<T> GetDetails<T>(CourseViewModel input);
     }
 }

@@ -11,7 +11,9 @@
     using GolfTour.Data.Seeding;
     using GolfTour.Services.Data;
     using GolfTour.Services.Data.Cloudinary;
+    using GolfTour.Services.Data.Course;
     using GolfTour.Services.Data.Helpers;
+    using GolfTour.Services.Data.Player;
     using GolfTour.Services.Mapping;
     using GolfTour.Services.Messaging;
     using GolfTour.Web.ViewModels;
@@ -67,8 +69,9 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
-            services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<ICloudinaryService, CloudinaryService>();
+            services.AddTransient<ICourseService, CourseService>();
+            services.AddTransient<IPlayerService, PlayerService>();
         }
 
         private static void Configure(WebApplication app)

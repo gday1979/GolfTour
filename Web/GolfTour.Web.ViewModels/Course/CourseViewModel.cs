@@ -28,15 +28,5 @@
         [Required]
         [StringLength(DesignerMaxLength, MinimumLength = DesignerMinLength)]
         public string Designer { get; set; }
-
-        public int FedexCupId { get; set; }
-
-        public int PgaTourId { get; set; }
-
-        public int TourId { get; set; }
-
-        public int RankingId { get; set; }
-
-        public IEnumerable<TourViewModel> Tours { get; set; }
     }
 }
