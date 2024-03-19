@@ -16,6 +16,7 @@
         public Course()
         {
             this.Players = new HashSet<Player>();
+            this.Images = new HashSet<Image>();
         }
 
         [Required]
@@ -36,5 +37,8 @@
         public string Designer { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; }
+        public string AddedByUserId { get; set; }
     }
 }

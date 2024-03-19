@@ -8,12 +8,12 @@
 
     public interface ICourseService
     {
-        Task<int> GetCountAllCourses(int courseId);
+        Task<int> GetAllCoursesCountAsync();
 
         Task<int> CreateCourseAsync(CourseViewModel input, string userId);
 
         Task<int> EditCourseAsync(CourseViewModel input, string userId);
 
-        Task<T> GetDetails<T>(CourseViewModel input);
+        Task<TViewModel> GetCourseDetailsAsync<TViewModel>(int courseId); 
     }
 }

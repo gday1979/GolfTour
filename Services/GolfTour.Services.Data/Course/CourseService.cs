@@ -1,31 +1,36 @@
 ﻿namespace GolfTour.Services.Data.Course
 {
     using System;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    using GolfTour.Data.Common.Repositories;
+    using GolfTour.Data.Models;
     using GolfTour.Web.ViewModels.Course;
 
     public class CourseService : ICourseService
     {
-        private readonly ICourseService courseService;
+        private readonly IDeletableEntityRepository<Course> courseRepository;
 
-        public CourseService()
+        public CourseService(IDeletableEntityRepository<Course> courseRepository)
         {
+            this.courseRepository = courseRepository;
         }
 
         public async Task<int> CreateCourseAsync(CourseViewModel input, string userId)
         {
-            var course = new CourseViewModel
+            var course = new Course
             {
                 Name = input.Name,
                 Country = input.Country,
                 City = input.City,
                 Designer = input.Designer,
-                ImageCourse = input.ImageCourse,
+                ImageCourse = input.ImageUrl,
+                AddedByUserId = userId,
             };
-            await this.courseService.CreateCourseAsync(course, userId);
-            return 1;
+            await this.courseRepository.AddAsync(course);
+            await this.courseRepository.SaveChangesAsync();
+            return course.Id;
+
         }
 
         public Task<int> EditCourseAsync(CourseViewModel input, string userId)
@@ -33,17 +38,12 @@
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CourseViewModel>> GetAllCoursesAsync(int courseId, int take, int skip)
+        public Task<int> GetAllCoursesCountAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<int> GetCountAllCourses(int courseId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<T> GetDetails<T>(CourseViewModel input)
+        public Task<TViewModel> GetCourseDetailsAsync<TViewModel>(int courseId)
         {
             throw new NotImplementedException();
         }

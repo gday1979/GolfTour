@@ -13,6 +13,7 @@
         {
             this.PlayerQualifieds = new HashSet<PlayerQualified>();
             this.Courses = new HashSet<Course>();
+            this.Images = new HashSet<Image>();
         }
 
         [Required]
@@ -40,5 +41,7 @@
         public virtual ICollection<Course> Courses { get; set; }
 
         public virtual ICollection<PlayerQualified> PlayerQualifieds { get; set; }
+
+        public virtual ICollection <Image> Images { get; set; }
     }
 }

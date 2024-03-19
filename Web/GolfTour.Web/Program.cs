@@ -16,11 +16,13 @@
     using GolfTour.Services.Data.Player;
     using GolfTour.Services.Mapping;
     using GolfTour.Services.Messaging;
+    using GolfTour.Web.Middlewares;
     using GolfTour.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.CodeAnalysis.CSharp.Syntax;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
@@ -43,7 +45,8 @@
                 options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(IdentityOptionsProvider.GetIdentityOptions)
-                .AddRoles<ApplicationRole>().AddEntityFrameworkStores<GolfTourDbContext>();
+                    .AddRoles<ApplicationRole>()
+                    .AddEntityFrameworkStores<GolfTourDbContext>();
 
             services.Configure<CookiePolicyOptions>(
                 options =>
@@ -72,6 +75,13 @@
             services.AddTransient<ICloudinaryService, CloudinaryService>();
             services.AddTransient<ICourseService, CourseService>();
             services.AddTransient<IPlayerService, PlayerService>();
+
+            /*Account account = new Account(
+                 configuration["Cloudinary:AppName"],
+                 configuration["Cloudinary:AppKey"],
+                 configuration["Cloudinary:AppSecret"]);
+            Cloudinary cloudinary = new Cloudinary(account);
+            services.AddSingleton(cloudinary);*/
         }
 
         private static void Configure(WebApplication app)

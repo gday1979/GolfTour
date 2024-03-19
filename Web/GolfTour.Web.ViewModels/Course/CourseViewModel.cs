@@ -23,7 +23,7 @@
         public string City { get; set; }
 
         [Required]
-        public string ImageCourse { get; set; }
+        public string ImageUrl { get; set; }
 
         [Required]
         [StringLength(DesignerMaxLength, MinimumLength = DesignerMinLength)]

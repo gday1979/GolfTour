@@ -13,7 +13,6 @@
     {
         public GolfRanking()
         {
-            this.Courses = new HashSet<Course>();
             this.Players = new HashSet<Player>();
         }
 
@@ -35,7 +34,5 @@
         public int MoneyRanking { get; set; }
 
         public virtual ICollection<Player> Players { get; set; }
-
-        public virtual ICollection<Course> Courses { get; set; }
     }
 }

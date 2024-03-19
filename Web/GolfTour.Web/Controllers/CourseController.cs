@@ -29,7 +29,7 @@
             var course = await this.context.Courses.FindAsync(id);
             if (course == null)
             {
-                return NotFound();
+                return this.NotFound();
             }
 
             var courseView = new DetailsViewModel
