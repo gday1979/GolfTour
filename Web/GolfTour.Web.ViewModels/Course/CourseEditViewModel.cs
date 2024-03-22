@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class DetailsViewModel
+    public class CourseEditViewModel
     {
         public int Id { get; set; }
 

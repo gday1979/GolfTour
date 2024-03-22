@@ -6,7 +6,11 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class TourDetailViewModel
+    using GolfTour.Services.Mapping;
+
+    using Tour = GolfTour.Data.Models.Tour;
+
+    public class TourDetailViewModel : IMapFrom<Tour>
     {
     }
 }

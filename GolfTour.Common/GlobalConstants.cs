@@ -11,7 +11,7 @@
         public const string AdministratorUserName = "Admin";
 
         public const string AdministratorEmail = "zshkembov@gmail.com";
-        public const string AdministratorPassword = "123456";
+        public const string AdministratorPassword = "16051979";
 
         public const string AdministratorFullName = "Zlatin Shekembov";
 

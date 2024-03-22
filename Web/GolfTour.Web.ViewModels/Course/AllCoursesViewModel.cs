@@ -7,6 +7,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    using GolfTour.Data.Models;
+
     using static GolfTour.Web.ViewModels.ViewModelsValidations.Course;
 
     public class AllCoursesViewModel
@@ -22,5 +24,7 @@
         public string ImageCourse { get; set; }
 
         public string Designer { get; set; }
+
+        public virtual IEnumerable<Course> Courses { get; set; }
     }
 }

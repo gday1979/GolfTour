@@ -42,6 +42,6 @@
 
         public virtual ICollection<PlayerQualified> PlayerQualifieds { get; set; }
 
-        public virtual ICollection <Image> Images { get; set; }
+        public virtual ICollection<Image> Images { get; set; }
     }
 }

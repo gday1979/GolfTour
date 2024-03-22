@@ -1,18 +1,13 @@
 ﻿namespace GolfTour.Services.Data.Cloudinary
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
-
-    using CloudinaryDotNet.Actions;
+    using CloudinaryDotNet;
     using Microsoft.AspNetCore.Http;
 
     public interface ICloudinaryService
     {
-        Task<ImageUploadResult> AddPhotoAsync(IFormFile file);
+        Task<string> UploadAsync(IFormFile file, string fileName);
 
-        Task<DeletionResult> DeletePhotoAsync(string publicId);
+        Task DeleteImage(Cloudinary cloudinary, string name);
     }
 }

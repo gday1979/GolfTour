@@ -32,5 +32,23 @@
             public const int DesignerMinLength = 3;
             public const int DesignerMaxLength = 15;
         }
+
+        public static class Player
+        {
+            public const int FirstNameMinLength = 2;
+            public const int FirstNameMaxLength = 20;
+
+            public const int LastNameMinLength = 2;
+            public const int LastNameMaxLength = 20;
+
+            public const int CountryMinLength = 3;
+            public const int CountryMaxLength = 15;
+
+            public const int CityMinLength = 3;
+            public const int CityMaxLength = 15;
+
+            public const int YearsProMinValue = 1;
+            public const int YearsProMaxValue = 30;
+        }
     }
 }

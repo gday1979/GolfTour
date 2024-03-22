@@ -1,0 +1,29 @@
+﻿@model IEnumerable<GolfTour.Web.ViewModels.Course.AllCoursesViewModel>
+
+<h2>All Courses</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Image</th>
+            <th>Designer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.Name</td>
+                <td>@course.Country</td>
+                <td>@course.City</td>
+                <td><img src="@course.ImageCourse" alt="@course.Name" width="100" height="100" /></td>
+                <td>@course.Designer</td>
+            </tr>
+        }
+    </tbody>
+</table>

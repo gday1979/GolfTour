@@ -10,10 +10,6 @@
     {
         public IActionResult Index()
         {
-            if (this.User.Identity.IsAuthenticated)
-            {
-                return this.RedirectToAction("Index", "Course");
-            }
 
             return this.View();
         }

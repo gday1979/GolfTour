@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -16,37 +17,40 @@
     {
         private readonly Cloudinary cloudinary;
 
-        public CloudinaryService(IOptions<CloudinarySettings> config)
+        public CloudinaryService(Cloudinary cloudinary)
         {
-            var acc = new Account(
-                    config.Value.CloudName,
-                    config.Value.ApiKey,
-                    config.Value.ApiSecret);
-            this.cloudinary = new Cloudinary(acc);
+            this.cloudinary = cloudinary;
         }
 
-        public async Task<ImageUploadResult> AddPhotoAsync(IFormFile file)
+        public async Task DeleteImage(Cloudinary cloudinary, string name)
         {
-            var uploadResult = new ImageUploadResult();
-            if (file.Length > 0)
+            var delParams = new DelResParams()
             {
-                using var stream = file.OpenReadStream();
-                var uploadParams = new ImageUploadParams
-                {
-                    File = new FileDescription(file.FileName, stream),
-                    Transformation = new Transformation().Height(500).Width(500).Crop("fill").Gravity("face"),
-                };
-                uploadResult = await this.cloudinary.UploadAsync(uploadParams);
-            }
+                    PublicIds = new List<string> { name },
+                    Invalidate = true,
+            };
 
-            return uploadResult;
+            await cloudinary.DeleteResourcesAsync(delParams);
         }
 
-        public async Task<DeletionResult> DeletePhotoAsync(string publicId)
+        public async Task<string> UploadAsync(IFormFile file, string fileName)
         {
-            var deleteParams = new DeletionParams(publicId);
-            var result = await this.cloudinary.DestroyAsync(deleteParams);
-            return result;
+            byte[] destinationImage;
+
+            using var memoryStream = new MemoryStream();
+            await file.CopyToAsync(memoryStream);
+            destinationImage = memoryStream.ToArray();
+
+            using var destinationStream = new MemoryStream(destinationImage);
+
+            fileName = fileName.Replace("&", "And");
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(fileName, destinationStream),
+                PublicId = fileName,
+            };
+            var result = await this.cloudinary.UploadAsync(uploadParams);
+            return result.Uri.AbsoluteUri;
         }
     }
 }
